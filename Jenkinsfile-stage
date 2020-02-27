@@ -38,7 +38,7 @@ spec:
     stage('Promote to Stage') {
       steps {
         container('alpine') {
-            timeout(time: 2, unit: HOURS) {
+            timeout(time: 2, unit: 'HOURS') {
             input id: 'jira', message: 'Create Jira Ticket for Promotion?', submitterParameter: 'approved'
             }
             withCredentials([usernameColonPassword(credentialsId: 'jira-2', variable: 'jira')]) {
@@ -63,7 +63,7 @@ spec:
                 -H "Content-Type: application/json" \
                 http://35.243.254.0:8080/rest/api/2/issue/"""
         }
-        timeout(time: 2, unit: HOURS) {
+        timeout(time: 2, unit: 'HOURS') {
         input id: 'StagePromotion', message: 'Promote?', submitterParameter: 'approved'
         }
         }
