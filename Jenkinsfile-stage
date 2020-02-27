@@ -1,0 +1,70 @@
+pipeline {
+parameters {
+    string(name: 'Version', description: 'Version')
+}
+   options { 
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+   }
+agent {
+    kubernetes {
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    some-label: some-label-value
+spec:
+  containers:
+  - name: maven
+    image: maven:alpine
+    command:
+    - cat
+    tty: true
+  - name: busybox
+    image: busybox
+    command:
+    - cat
+    tty: true
+  - name: alpine
+    image: byrnedo/alpine-curl
+    command:
+    - cat
+    tty: true
+"""
+    }
+  }
+  stages {
+
+    stage('Promote to Stage') {
+      steps {
+        container('alpine') {
+            input id: 'jira', message: 'Create Jira Ticket for Promotion?', submitterParameter: 'approved'
+            withCredentials([usernameColonPassword(credentialsId: 'jira-2', variable: 'jira')]) {
+            sh label: '', script: """
+            curl \
+            -D- \
+            -u ${jira} \
+            -X POST \
+            --data '{
+                "fields": {
+                "project":
+                    {
+                        "key": "MYAP"
+                    },
+                "summary": "Deploy to Stage Build Number: ${BUILD_NUMBER}",
+                "description": "Deploy Build Number: ${BUILD_NUMBER} to Stage - ${JOB_URL}${BUILD_NUMBER}/input/StagePromotion/proceedEmpty",
+                "issuetype": {
+                    "name": "Task"
+                    }
+                }
+            }' \
+                -H "Content-Type: application/json" \
+                http://35.243.254.0:8080/rest/api/2/issue/"""
+        }
+        input id: 'StagePromotion', message: 'Promote?', submitterParameter: 'approved'
+
+        }
+      }
+    }
+  }
+}
