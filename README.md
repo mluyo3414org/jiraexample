@@ -20,7 +20,6 @@ https://hub.docker.com/r/atlassian/jira-software
 
 * Create two pipeline jobs in your master. Click in "New Item":
 
-![new-item](images/new-item.png)
 
 
 
