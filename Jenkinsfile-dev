@@ -50,7 +50,7 @@ spec:
     }
     stage('Trigger Stage Job') {
       steps {
-    build job: 'stage', parameters: [string(name: 'Version', value: '0.0.1')], wait: false
+    build job: 'stage-pipeline', parameters: [string(name: 'Version', value: '0.0.1')], wait: false
     }
     }
   }
