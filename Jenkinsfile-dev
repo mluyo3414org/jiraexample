@@ -1,0 +1,57 @@
+pipeline {
+  agent {
+    kubernetes {
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    some-label: some-label-value
+spec:
+  containers:
+  - name: maven
+    image: maven:alpine
+    command:
+    - cat
+    tty: true
+  - name: busybox
+    image: busybox
+    command:
+    - cat
+    tty: true
+  - name: alpine
+    image: byrnedo/alpine-curl
+    command:
+    - cat
+    tty: true
+"""
+    }
+  }
+   options { 
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+   }
+  stages {
+    stage('Build And Test') {
+      steps {
+        container('maven') {
+          sh 'mvn -version'
+        }
+        container('busybox') {
+          sh 'echo Build And Test'
+        }
+      }
+    }
+    stage('Deploy To Dev') {
+      steps {
+        container('busybox') {
+          sh 'echo Deploy To Dev'
+        }
+      }
+    }
+    stage('Trigger Stage Job') {
+      steps {
+    build job: 'stage', parameters: [string(name: 'Version', value: '0.0.1')], wait: false
+    }
+    }
+  }
+}
