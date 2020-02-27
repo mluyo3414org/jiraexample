@@ -38,7 +38,7 @@ spec:
     stage('Promote to Stage') {
       steps {
         container('alpine') {
-            input id: 'jira', message: 'Create Jira Ticket for Promotion?', submitterParameter: 'approved'
+            input id: 'jira', message: 'Create Jira Ticket for Promotion?', submitterParameter: 'approved', requestTimeout: 600000
             withCredentials([usernameColonPassword(credentialsId: 'jira-2', variable: 'jira')]) {
             sh label: '', script: """
             curl \
