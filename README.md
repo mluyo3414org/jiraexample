@@ -1,4 +1,4 @@
-# Jira/Core integration
+# Jira/CloudBees Core integration
 
 This is a simple integration between Jira (https://hub.docker.com/u/atlassian) and CloudBees Core Modern 2.190.3.2 (Helm chart - cloudbees-core-3.7.0+ffcae9c08fc6). Both applications were deployed in K8s - 1.13.12 on GKE.
 
