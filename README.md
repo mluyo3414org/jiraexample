@@ -22,7 +22,7 @@ https://hub.docker.com/r/atlassian/jira-software
 
 ![create-pipelines](images/create-pipelines.gif)
 
-* Create credentials in order to connect to Jira:
+* Create credentials in order to connect to Jira. Make sure it matches the name here :https://github.com/mluyo3414org/jiraexample/blob/master/Jenkinsfile-stage#L44
 
 ![create-credentials](images/create-credentials.gif)
 
