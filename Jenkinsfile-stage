@@ -41,7 +41,7 @@ spec:
             timeout(time: 2, unit: 'HOURS') {
             input id: 'jira', message: 'Create Jira Ticket for Promotion?', submitterParameter: 'approved'
             }
-            withCredentials([usernameColonPassword(credentialsId: 'jira-2', variable: 'jira')]) {
+            withCredentials([usernameColonPassword(credentialsId: 'jira-credentials', variable: 'jira')]) {
             sh label: '', script: """
             curl \
             -D- \
