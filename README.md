@@ -40,11 +40,11 @@ https://hub.docker.com/r/atlassian/jira-software
 
 * Create two pipeline jobs in your master: one named dev-pipeline and one named stage-pipeline
 
-![create-pipelines](images/create-pipelines.gif)
+[![](http://img.youtube.com/vi/h4Eawm7T_pU/0.jpg)](http://www.youtube.com/watch?v=h4Eawm7T_pU "create-pipelines")
 
 * Create credentials in order to connect to Jira. Make sure it matches the name here (jira-credentials): https://github.com/mluyo3414org/jiraexample/blob/master/Jenkinsfile-stage#L44 
 
-![create-credentials](images/create-credentials.gif)
+[![](http://img.youtube.com/vi/uEugx239qFw/0.jpg)](http://www.youtube.com/watch?v=uEugx239qFw "create-credentials")
 
 * Start dev-pipeline (Recommendation: add webhooks to avoid manual triggering - https://support.cloudbees.com/hc/en-us/articles/224543927-GitHub-Integration-Webhooks) 
 
@@ -52,7 +52,7 @@ https://hub.docker.com/r/atlassian/jira-software
 
 * Once approved, the JIRA ticket is created with a description that includes the second input step that will allow the continuation of the pipeline. This can be executed from another system using a POST command as demonstrated from the terminal.
 
-![starting-pipelines](images/starting-pipelines.gif)
+[![](http://img.youtube.com/vi/MVNJjpNhs8Q/0.jpg)](http://www.youtube.com/watch?v=MVNJjpNhs8Q "start-pipelines")
 
 
 
