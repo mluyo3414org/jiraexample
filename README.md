@@ -18,13 +18,14 @@ https://hub.docker.com/r/atlassian/jira-software
 
 ## Testing the pipelines in your Master
 
-* Create two pipeline jobs in your master.
+* Create two pipeline jobs in your master: one named dev-pipeline and one named stage-pipeline
 
 ![create-pipelines](images/create-pipelines.gif)
 
-* Create credentials in order to connect to Jira. Make sure it matches the name here :https://github.com/mluyo3414org/jiraexample/blob/master/Jenkinsfile-stage#L44
+* Create credentials in order to connect to Jira. Make sure it matches the name here (jira-credentials): https://github.com/mluyo3414org/jiraexample/blob/master/Jenkinsfile-stage#L44 
 
 ![create-credentials](images/create-credentials.gif)
+
 
 
 
