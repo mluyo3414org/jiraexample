@@ -20,10 +20,11 @@ https://hub.docker.com/r/atlassian/jira-software
 
 * Create two pipeline jobs in your master.
 
-![new-item](images/create-pipelines.gif)
+![create-pipelines](images/create-pipelines.gif)
 
 * Create credentials in order to connect to Jira:
 
+![create-credentials](images/create-credentials.gif)
 
 
 
