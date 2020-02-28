@@ -13,7 +13,7 @@ This is a simple integration between Jira (https://hub.docker.com/u/atlassian) a
 - JIRA documentation for the call in the stage-pipeline: https://developer.atlassian.com/server/jira/platform/jira-rest-api-examples/#creating-an-issue-examples
 
 - Jira Project Key for this example is "MYAP" https://github.com/mluyo3414org/jiraexample/blob/master/Jenkinsfile-stage#L54
-The description in the ticket created in JIRA adds URL for input step for the stage-pipeline job https://github.com/mluyo3414org/jiraexample/blob/master/Jenkinsfile-stage#L54 so that the continuation (i.e deployment in stage) can be triggered from an external system. Recommendations: Use these parameters in the REST call as variables.
+The description in the ticket created in JIRA adds URL for input step for the stage-pipeline job https://github.com/mluyo3414org/jiraexample/blob/master/Jenkinsfile-stage#L57 so that the continuation (i.e deployment in stage) can be triggered from an external system. Recommendation: Use these parameters in the REST call as variables.
 
 
 ## Notes
@@ -32,7 +32,7 @@ https://docs.cloudbees.com/docs/cloudbees-core/latest/gke-install-guide/installi
 
 https://support.cloudbees.com/hc/en-us/articles/115003090592-How-to-re-generate-my-Jenkins-user-token
 
-* Install Jira
+* Install Jira and user with correct authorization for ticket creation
 
 https://hub.docker.com/r/atlassian/jira-software
 
